@@ -1,0 +1,35 @@
+﻿<Window x:Class="Company.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Company"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ComboBox x:Name="departCB" ItemsSource="{Binding Path=Departments}"
+                  DisplayMemberPath="DepartName"
+                  SelectedValue="{Binding Path=Department, Mode=OneWay}" Margin="591,326,111.6,65"
+                  />
+        <TextBox x:Name="DepartNameTB" HorizontalAlignment="Left" Height="23" Margin="446,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="AddDepartBtn" Content="Добавить" HorizontalAlignment="Left" Margin="446,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="DelDepartBtn" Content="Удалить" HorizontalAlignment="Left" Margin="591,294,0,0" VerticalAlignment="Top" Width="75" Click="DelDepartBtn_Click"/>
+        <ListView x:Name="listView" ItemsSource="{Binding Path=Workers}" HorizontalAlignment="Left" Height="100" Margin="85,166,0,0" VerticalAlignment="Top" Width="369" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding SurName, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+                    <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+                    <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding SecondName, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+                    <GridViewColumn Header="Депаартамент" DisplayMemberBinding="{Binding Department, UpdateSourceTrigger=PropertyChanged}" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="ChangeDataEmployeeBtn" Content="Удалить" HorizontalAlignment="Left" Margin="379,289,0,0" VerticalAlignment="Top" Width="75" Click="ChangeDataEmployeeBtn_Click"/>
+        <Button x:Name="button" Content="Изменить" HorizontalAlignment="Left" Margin="548,78,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <Button x:Name="button1" Content="Изменить" HorizontalAlignment="Left" Margin="667,368,0,0" VerticalAlignment="Top" Width="75" Click="Button1_Click"/>
+        <TextBox x:Name="TbFirstName" HorizontalAlignment="Left" Height="23" Margin="85,332,0,0" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TbSurname" HorizontalAlignment="Left" Height="23" Margin="243,332,0,0" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="TbSecondName" HorizontalAlignment="Left" Height="23" Margin="427,332,0,0" TextWrapping="Wrap" Text="Отчество" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="BtAddWorker" Content="Добавить" HorizontalAlignment="Left" Margin="510,373,0,0" VerticalAlignment="Top" Width="75" Click="BtAddWorker_Click"/>
+    </Grid>
+</Window>
